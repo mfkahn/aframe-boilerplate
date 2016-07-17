@@ -12,7 +12,7 @@
     "budo": "^7.0.0",
     "ghpages": "0.0.3"
   },
-  private: true,
+  "private": true,
   "keywords": [
     "aframe",
     "aframe-example",
