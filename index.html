@@ -2,18 +2,66 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Hello, World! • A-Frame</title>
-    <meta name="description" content="Hello, World! • A-Frame">
-    <script src="https://aframe.io/releases/latest/aframe.min.js"></script>
+    <title>Hello, World! • WebVR with A-Frame</title>
+    <meta name="description" content="Hello, World! using A-Frame">
+    <script src="https://aframe.io/releases/0.2.0/aframe.min.js"></script>
+    <script src="components/aframe-layout-component.min.js"></script>
+    
+    <style>
+      #blurb {
+        position: absolute;
+        z-index: 9999;
+        top: 5px; left: 5px;
+        background-color: rgba(0,0,0,0.35);
+        color: white;
+        font-family: sans-serif;
+        padding: 0.64rem;     
+        font-weight: 200;  
+        width: 150px;
+        max-width: 80%;
+        font-size: smaller;
+        box-shadow: 3px 3px 11px rgba(0,0,0,0.6);
+
+      }
+      a, a:visited {
+        color: steelblue;
+      }
+      #blurb h1 {
+        font-weight: normal;
+        font-size: 1.3rem;
+      }
+    </style>
   </head>
   <body>
     <a-scene>
-      <a-sphere position="0 1.25 -1" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cube position="-1 0.5 1" rotation="0 45 0" width="1" height="1" depth="1"  color="#4CC3D9"></a-cube>
-      <a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-
+      <a-assets>
+        <img id="beach" src="assets/beach2.jpg">
+        <img id="mars" src="assets/marslandscape.jpg">
+      </a-assets>
+      <!--<a-sphere position="0 1.25 -1" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cube position="-1 0.5 1" rotation="0 45 0" width="1" height="1" depth="1" color="#4CC3D9"></a-cube>
+      <a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>-->
+      <!--<a-plane rotation="-90 0 0" position="4 -0.25 -0.5" width="10" height="10" color="#FFFFFF"></a-plane>-->
       <a-sky color="#ECECEC"></a-sky>
+      <a-sphere id="world" position="4.5 2 0" radius="1.25" src="#mars">
+         <a-animation id="box-animation" dur="5000" attribute="rotation" easing="linear" repeat="indefinite" to="0 360 0"></a-animation>
+      </a-sphere>
+      
+      <a-sky src="#beach"></a-sky>
+      <!-- sun right overhead -->
+      <a-light type="directional" color="#FFFFFF" position="0 100 0" look-at="world"></a-light>      
+      <a-light type="hemisphere" ground-color="#111111" intensity="0.6" color="#FFFFFF" position="0 100 0" look-at="world"></a-light>
+      
+      <a-camera position="0 1.8 5" id="me">
+        <a-cursor color="#2E3A87">
+      </a-camera>
     </a-scene>
+    <aside id="blurb" style="z-index: 9999;">
+      <h1>Hello World!</h1>
+      <p>A first experiment with the <a href="https://aframe.io">A-Frame</a> VR-for-the-web kit.</p>
+      <div style="text-align: right">MK</div>
+      <div style="font-size: x-small">Martian surface borrowed from <a href="http://pics-about-space.com/martian-landscape-nasa?p=2#img7665849258817983966">NASA</a></div>
+    </aside>
+    
   </body>
 </html>

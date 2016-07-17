@@ -1,6 +1,6 @@
 {
-  "name": "aframe-boilerplate",
-  "description": "Boilerplate for creating WebVR scenes using A-Frame",
+  "name": "aframe-helloworld",
+  "description": "Hello World based on A-Frame boilerplate",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -12,6 +12,7 @@
     "budo": "^7.0.0",
     "ghpages": "0.0.3"
   },
+  "private": true,
   "keywords": [
     "aframe",
     "aframe-example",
